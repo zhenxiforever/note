@@ -28,5 +28,10 @@ $ jstat -gcutil $pid 1s
 如果hang住，去看看 jvm 的进程
 ```
 
+* 查找文件并删除 
 
+``` 
+$ [sudo] find /path/ -name ".DS_Store" -depth -exec rm {} \;
+$ [sudo] find . -name "*.DS_Store" -type f -delete
+``` 
 
