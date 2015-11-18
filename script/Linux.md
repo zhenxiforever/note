@@ -35,3 +35,16 @@ $ [sudo] find /path/ -name ".DS_Store" -depth -exec rm {} \;
 $ [sudo] find . -name "*.DS_Store" -type f -delete
 ``` 
 
+* 配置ssh  
+
+```
+$ ssh-keygen -t rsa                             //生成key
+$ ssh-add                                       //秘钥加入ssh-agent 
+$ ssh-add -l                                    //查看
+$ cat ~/.ssh/id_rsa.pub >> authorized_keys
+$ vim ~/.ssh/config
+Host mid
+     User saboloh                              //配置默认用户
+``` 
+
+
