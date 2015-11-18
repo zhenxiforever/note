@@ -44,7 +44,7 @@ $ ssh-add -l                                    //查看
 $ cat ~/.ssh/id_rsa.pub >> authorized_keys
 $ vim ~/.ssh/config
 Host mid
-     User saboloh                              //配置默认用户
+     User saboloh                               //配置默认用户
 ``` 
 
 
