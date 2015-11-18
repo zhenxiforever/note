@@ -1,5 +1,5 @@
 
-* MySQL 企业版安装后，root密码自动生成在: /root/.mysql_secret  
+* MySQL 企业版安装后，root密码自动生成在: `/root/.mysql_secret`  
 
 * mysqldump 导出表结构到指定库  
 
