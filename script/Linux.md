@@ -47,4 +47,9 @@ Host mid
      User saboloh                               //配置默认用户
 ``` 
 
+* 查看占用空间  
+
+``` 
+ls / | grep -vP '(proc)' | awk '{print "du -s -h /" $1}' | bash  
+``` 
 
