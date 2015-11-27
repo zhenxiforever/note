@@ -4,7 +4,7 @@ Some Examples
 
 * Fix Daily & Hourly Job
 
-``` 
+```bash 
 #!/usr/bin/env bash
 
 # set -x
