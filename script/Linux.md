@@ -53,3 +53,23 @@ Host mid
 ls / | grep -vP '(proc)' | awk '{print "du -s -h /" $1}' | bash  
 ``` 
 
+* 查看源  
+
+```bash  
+$ ldd /usr/bin/nginx
+$ ldconfig -p | grep odbc
+$ vim /etc/ld.so.conf.d/usr.conf 
+
+# 编译
+$ export CFLAGS=-m32 LDFLAGS=-m32 CXXFLAGS=-m32
+$ ./configure
+$ vim libtool
+$ make -j 4 
+$ make install 
+```
+
+
+
+
+
+
