@@ -9,7 +9,7 @@
  2015-12-11 04:26:06,119 INFO [main] org.apache.hadoop.hive.ql.exec.MapJoinOperator: Load back 1 hashtable file from tmp file uri:file:/hadoop3/yarn/nm/usercache/hadoop/appcache/application_1449142557781_73597/container_e11_1449142557781_73597_01_000002/Stage-9.tar.gz/MapJoin-mapfile11--.hashtable
 ``` 
 
-*解决方法*： 保证用于 join 的列一致，cast 或者直接修改表的结构。
+<b>解决方法</b>： 保证用于 join 的列一致，cast 或者直接修改表的结构。
 
 如果还不能解决，先手动禁用掉 map join ：
 
@@ -31,6 +31,6 @@ set hive.auto.convert.join=false;
 ``` 
 
 如果有这种情况，解决的方法是先更换序列化的方法，即加入：
-```
+```sql
 set hive.plan.serialization.format=javaXML;
 ``` 
