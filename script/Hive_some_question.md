@@ -1,4 +1,4 @@
-*  map join 的字段不一致，主要是 string 和 int 的列做 join
+####  map join 的字段不一致，主要是 string 和 int 的列做 join
 
 日志里面看 job 长期 hang 在以下位置：
 
@@ -18,7 +18,7 @@ set hive.auto.convert.join=false;
 ```
 
 
-* hive 使用的新的序列化方法后偶尔出现的问题。
+#### hive 使用的新的序列化方法后偶尔出现的问题。
 
 这种问题一般是代码里面设置了 `set hive.exec.parallel=true;` 运行的时候，偶尔会报以下错误，重跑有可能成功：
 ``` 
