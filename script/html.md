@@ -1,6 +1,6 @@
 # Table tr swap 
 
-``` 
+```js 
 var swapRows = function(a, b) {
   var columnsT = document.getElementById("columnsTable");
   var rows = columnsT.rows;
