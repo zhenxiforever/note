@@ -8,7 +8,8 @@ ssh -f -N -D 0.0.0.0:8081 localhost
 ``` 
 
 * use node.js  
-
+  * app.js
+  * index.html
 ```js 
 var express = require('express');
 var path = require('path');
@@ -22,8 +23,7 @@ app.listen(3000, function () {
 });
 
 ``` 
-
-```html
+```js
 function FindProxyForURL(url, host) {
   if (host.indexOf('10.') == 0 ||
     host.indexOf('tjtx-') == 0 ||
