@@ -68,6 +68,11 @@ $ make -j 4
 $ make install 
 ```
 
+# 同步目录
+
+```bash 
+$ rsync -a -f"+ */" -f"- *" /data/ root@10.126.92.72:/data/
+``` 
 
 
 
