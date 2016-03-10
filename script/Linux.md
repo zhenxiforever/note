@@ -75,6 +75,19 @@ $ rsync -a -f"+ */" -f"- *" /data/ root@10.126.92.72:/data/
 ``` 
 
 
+# JDK环境变量 
 
+```bash 
+$ sudo vim /etc/profile.d/jdk7.sh
+#!/bin/bash
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle-cloudera
+export JRE_HOME=$JAVA_HOME/jre
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib/rt.jar
 
+//或者采用update-alternatives
+$ update-alternatives --display|--config java   //可查看已有的信息（列表，优先级）
+$ update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-oracle-cloudera/bin/java 316  // 316-优先级
+$ update-alternatives --config java  // 回车通过序列号选择
+```
 
