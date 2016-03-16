@@ -2,7 +2,7 @@
 * ssh 端口转发 
 
 ```bash
-$ /usr/bin/ssh -L -f -N localhost:10000:10.126.215.131:10000 root@10.126.97.98
+$ /usr/bin/ssh -f -N -Llocalhost:10000:10.126.215.131:10000 root@10.126.97.98
 
 本地查看端口：
 $ telnet localhost 10000
