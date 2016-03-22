@@ -1,3 +1,12 @@
+* vps config
+
+```bash
+$ dpkg-reconfigure tzdata //时区
+// 字符编码
+$ apt-get install locales
+$ 
+```
+
 
 * prepare 
 
