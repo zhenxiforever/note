@@ -1,6 +1,8 @@
 [Cloudera Manager Install](http://www.cloudera.com/documentation/enterprise/latest/topics/cm_ig_install_path_a.html#cmig_topic_6_5_unique_2)
 ==========================
 
+* 删除已有[cloudera manager](http://www.cloudera.com/documentation/enterprise/5-5-x/topics/cm_ig_uninstall_cm.html)
+
 * 查看系统版本 
 
 ```
