@@ -15,6 +15,19 @@ Codename:   precise
 
 ```
 
+* 下载对应包并且配置本地源(避免使用cloudera-manager-installer.bin直接安装总是获取最新版CDH) 
+
+```
+下载好tarball
+$ wget http://archive.cloudera.com/cm5/repo-as-tarball/5.4.7/cm5.4.7-ubuntu12-04.tar.gz
+$ tar -zxvf cm5.4.7-ubuntu12-04.tar.gz
+
+安装nginx
+$ apt-get install nginx
+$ vim /etc/nginx/sites-enabled
+配置好对应tarball解压路径 
+```
+
 * 下载对应[parcel](http://archive.cloudera.com/cdh5/parcels/)
 
 ```
