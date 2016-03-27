@@ -12,7 +12,6 @@ Distributor ID: Ubuntu
 Description:    Ubuntu 12.04.4 LTS
 Release:    12.04
 Codename:   precise
-
 ```
 
 * 下载对应包并且配置本地源(避免使用cloudera-manager-installer.bin直接安装总是获取最新版CDH) 
@@ -45,6 +44,10 @@ server {
     }
 }
 ``` 
+
+* 浏览确认是否能访问 
+
+![](https://raw.githubusercontent.com/jianle/note/master/cloudera/filelist.png)
 
 * 配置apt source
 
