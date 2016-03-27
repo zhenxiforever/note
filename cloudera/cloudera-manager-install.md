@@ -18,14 +18,41 @@ Codename:   precise
 * 下载对应包并且配置本地源(避免使用cloudera-manager-installer.bin直接安装总是获取最新版CDH) 
 
 ```
-下载好tarball
+# 下载好tarball
 $ wget http://archive.cloudera.com/cm5/repo-as-tarball/5.4.7/cm5.4.7-ubuntu12-04.tar.gz
 $ tar -zxvf cm5.4.7-ubuntu12-04.tar.gz
+$ cp -r cm /var/spool/apt-mirror/mirror/archive.cloudera.com/
 
-安装nginx
-$ apt-get install nginx
-$ vim /etc/nginx/sites-enabled
-配置好对应tarball解压路径 
+# 使用nginx配置
+$ apt-get install nginx 
+$ vim /etc/nginx/nginx.conf
+# 访问本地目录列表
+server {
+    listen       80;
+    server_name  dev-001;
+
+    location / {
+        root   /var/spool/apt-mirror/mirror/archive.cloudera.com/;
+        index  index.html index.htm;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+``` 
+
+* 配置apt source
+
+```
+$ vim /etc/apt/source.list.d/my-private-cloudera-repo.list
+# Packages for Clouderas Distribution for Hadoop, Version 4, on Ubuntu 12.04 x86_64
+deb [arch=amd64] http://dev-001/cm precise-cm5 contrib
+deb-src http://dev-001/cm precise-cm5.4.7 contrib
 ```
 
 * 下载对应[parcel](http://archive.cloudera.com/cdh5/parcels/)
@@ -45,4 +72,14 @@ $ mv CDH-5.4.7-1.cdh5.4.7.p0.3-precise.parcel.sha1 CDH-5.4.7-1.cdh5.4.7.p0.3-pre
 ``` 
 $ wget https://archive.cloudera.com/cm5/installer/5.4.7/cloudera-manager-installer.bin
 ```
+
+* 安装
+
+```
+$ chmod +x cloudera-manager-installer.bin
+$ ./cloudera-manager-installer.bin --skip_repo_package=1
+```
+
+
+
 
