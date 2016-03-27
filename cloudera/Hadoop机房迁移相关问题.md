@@ -25,9 +25,11 @@ scm=> select * from hosts; # show hostinfo in hosts
   * 需要`deploy client config`
   * namenode ha 启动会有问题，原因是之前 zk 里面保存的 hostname 发生改变，停掉 failover controller 去 initiale zookeeper 都不会失败
 
+
 需要手动去 
 ```
-HADOOP_USER_NAME=hdfs hdfs --config /var/run/cloudera-scm-agent/process/150-failover-controller-initialize-znode zkfc -formatZK
+HADOOP_USER_NAME=hdfs 
+hdfs --config /var/run/cloudera-scm-agent/process/150-failover-controller-initialize-znode zkfc -formatZK
 ```
 提示我们 stop all hdfs service，输入 Y 确认格式掉 zookeeper 相关数据（注意，不是格式化 namenode）
 
