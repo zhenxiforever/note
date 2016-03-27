@@ -4,20 +4,14 @@
 
 * CDH 4 的时候需要修改数据库
 
-`/etc/cloudera-scm-server/db.properties` 这个文件记录 cm 用的 DB 的信息 
-
-``` 
+  * `/etc/cloudera-scm-server/db.properties` 这个文件记录 cm 用的 DB 的信息 
+  ``` 
 # psql  -h localhost -U scm -p 7432
 scm=> \dt # show tables in pg
 scm=> \list
 scm=> select * from hosts; # show hostinfo in hosts
 ```
-
-`/etc/cloudera-scm-agent/config.ini` 每个 agent 里面有记录 cm 的地址，需要修改一下
-
-```
-server_host=10.xx.xx.xx
-```
+  * `/etc/cloudera-scm-agent/config.ini` 每个 agent 里面有记录 cm 的地址，需要修改一下`server_host=10.xx.xx.xx`
 
 * CDH 5 的时候使用 uuid 来标识每台机器，看起来，只需要修改一下 `/etc/cloudera-scm-agent/config.ini` 里面对应的 server_host 即可 
 
@@ -31,8 +25,10 @@ server_host=10.xx.xx.xx
   * 需要`deploy client config`
   * namenode ha 启动会有问题，原因是之前 zk 里面保存的 hostname 发生改变，停掉 failover controller 去 initiale zookeeper 都不会失败
 
-需要手动去 `HADOOP_USER_NAME=hdfs hdfs --config /var/run/cloudera-scm-agent/process/150-failover-controller-initialize-znode zkfc -formatZK`
-
+需要手动去 
+```
+HADOOP_USER_NAME=hdfs hdfs --config /var/run/cloudera-scm-agent/process/150-failover-controller-initialize-znode zkfc -formatZK
+```
 提示我们 stop all hdfs service，输入 Y 确认格式掉 zookeeper 相关数据（注意，不是格式化 namenode）
 
 后面重启就好了
