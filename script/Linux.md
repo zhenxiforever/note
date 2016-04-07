@@ -74,6 +74,11 @@ $ make install
 $ rsync -a -f"+ */" -f"- *" /data/ root@10.126.92.72:/data/
 ``` 
 
+# wget 下载JDK
+
+```bash  
+$ wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u77-b03/jdk-8u77-linux-x64.tar.gz
+```
 
 # JDK环境变量 
 
@@ -90,4 +95,5 @@ $ update-alternatives --display|--config java   //可查看已有的信息（列
 $ update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-oracle-cloudera/bin/java 316  // 316-优先级
 $ update-alternatives --config java  // 回车通过序列号选择
 ```
+
 
